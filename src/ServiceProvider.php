@@ -12,7 +12,7 @@ class ServiceProvider extends LaravelServiceProvider
      * 部署时加载
      * @Author:<C.Jason>
      * @Date:2018-06-22T16:01:20+0800
-     * @return [type] [description]
+     * @return void
      */
     public function boot()
     {
@@ -31,6 +31,7 @@ class ServiceProvider extends LaravelServiceProvider
             $mobileFiled = $parameters[0] ?? 'mobile';
             $channel     = $parameters[1] ?? 'DEFAULT';
             $mobile      = request()->input($mobileFiled);
+
             return \Sms::check($mobile, $code, $channel);
         });
     }
@@ -39,10 +40,11 @@ class ServiceProvider extends LaravelServiceProvider
      * 注册服务提供者
      * @Author:<C.Jason>
      * @Date:2018-06-22T16:01:12+0800
-     * @return [type] [description]
+     * @return void
      */
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'sms');
     }
+
 }

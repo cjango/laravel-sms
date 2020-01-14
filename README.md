@@ -4,6 +4,10 @@
 
 ```
 $ composer require jasonc/sms
+
+$ php artisan vendor:publish --tag='sms'
+
+$ php artisan migrate
 ```
 
 ## 短信发送
