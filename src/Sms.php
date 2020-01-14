@@ -26,12 +26,12 @@ class Sms
             $config = config('sms');
 
             if (!isset($config['template'][$channel]) || empty($config['template'][$channel])) {
-                throw new SmsSendException('不合法的验证通道');
+                throw new SmsSendException('不合法的验证通道' . $config['template'][$channel]);
             }
 
             DB::transaction(function () use ($mobile, $channel, $config) {
                 if ($config['debug']) {
-                    $code = '1111';
+                    $code = $config['debug_code'];
                 } else {
                     $code = sprintf("%0" . $config['length'] . "d", mt_rand(1, pow(10, $config['length']) - 1));
                 }

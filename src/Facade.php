@@ -8,6 +8,6 @@ class Facade extends LaravelFacade
 {
     protected static function getFacadeAccessor()
     {
-        return \Jason\Sms\Facade::class;
+        return \Jason\Sms\Sms::class;
     }
 }
