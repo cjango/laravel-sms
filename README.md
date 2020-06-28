@@ -1,4 +1,4 @@
-# AsLong/Sms 短信发送扩展
+# Jason/Sms 短信发送扩展
 
 ## 安装
 
